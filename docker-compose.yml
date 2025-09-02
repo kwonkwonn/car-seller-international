@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  car-seller:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_NAVER_MAPS_CLIENT_ID: ${VITE_NAVER_MAPS_CLIENT_ID}
+        VITE_NAVER_MAPS_CLIENT_SECRET: ${VITE_NAVER_MAPS_CLIENT_SECRET}
+        VITE_NAVER_MAPS_API_KEY_ID: ${VITE_NAVER_MAPS_API_KEY_ID}
+        VITE_NAVER_MAPS_API_KEY: ${VITE_NAVER_MAPS_API_KEY}
+        VITE_GOOGLE_MAPS_API_KEY: ${VITE_GOOGLE_MAPS_API_KEY}
+        VITE_GOOGLE_MAPS_MAP_ID: ${VITE_GOOGLE_MAPS_MAP_ID}
+        VITE_GEMINI_API_KEY: ${VITE_GEMINI_API_KEY}
+    ports:
+      - "8080:80"
+    restart: unless-stopped
